@@ -1,30 +1,58 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+    <div class="grid">
+        <the-navigation></the-navigation>
+        <button @click="themeToggler">THEME SWITCHER</button>
+        <router-view class="mt-3"></router-view>
+    </div>
 </template>
+<script>
+import TheNavigation from '@/components/nav/TheNavigation';
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+export default {
+    name: 'App',
+    components: { TheNavigation },
+    data() {
+        return {};
+    },
+    methods: {
+        themeToggler() {
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme === 'dark') {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+            this.themeSwitcher();
+            console.log(currentTheme);
+        },
+        themeSwitcher() {
+            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+            if (
+                localStorage.theme === 'dark' ||
+                (!('theme' in localStorage) &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            // Whenever the user explicitly chooses light mode
+            // localStorage.theme = 'light';
+            // Whenever the user explicitly chooses dark mode
+            // localStorage.theme = 'dark';
+            // Whenever the user explicitly chooses to respect the OS preference
+            // localStorage.removeItem('theme');
+            // if (localStorage.theme === 'dark') {
+            //     document.documentElement.classList.add('dark');
+            // } else {
+            //     document.documentElement.classList.remove('dark');
+            // }
+        }
+    },
+    created() {
+        // this.themeSwitcher();
+    }
+};
+</script>
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>

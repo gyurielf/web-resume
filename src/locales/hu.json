@@ -1,0 +1,13 @@
+{
+    "pages": {
+        "home": "Homepage",
+        "about": "about page"
+    },
+    "navigations": {
+        "home": "Kezdőlap",
+        "about": "Rólunk"
+    },
+    "labels": {
+        "language": "Languages"
+    }
+}
