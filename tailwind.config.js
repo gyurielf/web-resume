@@ -23,8 +23,7 @@ module.exports = {
     },
     variants: {
         extend: {
-            backgroundColor: ['active'],
-            transform: ['active']
+            backgroundColor: ['active']
         }
     },
     plugins: []

@@ -596,7 +596,8 @@
                     >
                         Sign in
                     </a>
-                    <switch-button></switch-button>
+                    <!--                    <switch-button></switch-button>-->
+                    <theme-toggler></theme-toggler>
                 </div>
             </div>
         </div>
@@ -874,37 +875,40 @@
 </template>
 
 <script>
-import { defineComponent, watch, ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useI18n } from 'vue-i18n';
-import { SUPPORT_LOCALES } from '/i18n';
-import SwitchButton from '@/components/ui/SwitchButton';
-export default defineComponent({
+// import { defineComponent, watch, ref } from 'vue';
+// import { useRouter } from 'vue-router';
+// import { useI18n } from 'vue-i18n';
+// import { SUPPORT_LOCALES } from '/Work/Front-End/VUE_Projects/web-resume/i18n';
+import ThemeToggler from '@/components/ui/Elements/ThemeToggler';
+// import SwitchButton from '@/components/ui/Elements/SwitchButton';
+// export default defineComponent({
+export default {
     name: 'TheNavigation',
     components: {
-        SwitchButton
-    },
-    setup() {
+        ThemeToggler
+        // SwitchButton
+    }
+    /*setup() {
         const router = useRouter();
         const { t, locale } = useI18n({ useScope: 'global' });
-        /**
+        /!**
          * select locale value for language select form
          *
          * If you use the vue-i18n composer `locale` property directly, it will be re-rendering component when this property is changed,
          * before dynamic import was used to asynchronously load and apply locale messages
          * To avoid this, use the anoter locale reactive value.
-         */
+         *!/
         const currentLocale = ref(locale.value);
         // sync to switch locale from router locale path
         watch(router.currentRoute, route => {
             currentLocale.value = route.params.locale;
         });
-        /**
+        /!**
          * when change the locale, go to locale route
          *
          * when the changes are detected, load the locale message and set the language via vue-router navigation guard.
          * change the vue-i18n locale too.
-         */
+         *!/
         watch(currentLocale, val => {
             router.push({
                 name: router.currentRoute.value.name,
@@ -912,8 +916,8 @@ export default defineComponent({
             });
         });
         return { t, locale, currentLocale, supportLocales: SUPPORT_LOCALES };
-    }
-});
+    }*/
+};
 </script>
 
 <style scoped></style>

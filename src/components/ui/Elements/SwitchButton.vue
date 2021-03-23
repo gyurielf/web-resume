@@ -37,13 +37,12 @@
                     role="switch"
                     tabindex="0"
                     class="flex items-center px-0.5 rounded-full w-18 h-9 transition-colors duration-300 ease-in-out focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:ring-gray-500 focus:outline-none"
-                    :class="switchStatusClass"
-                    aria-checked="{{ariaStatus}}"
+                    :aria-checked="toggleActive"
                     @click="toggleBtn"
                 >
                     <span class="sr-only">Enable dark mode</span>
                     <input
-                        :value="ariaStatus"
+                        v-model="toggleActive"
                         type="checkbox"
                         class="appearance-none bg-white rounded-full w-8 h-8
                         transform duration-300 ease-in-out cursor-pointer focus:outline-none"
@@ -71,47 +70,46 @@
 </template>
 
 <script>
-import { computed, watch } from 'vue';
+import { computed, watch, ref, onBeforeMount } from 'vue';
 import { useStore } from 'vuex';
 export default {
     name: 'SwitchButton',
     setup() {
+        const toggleActive = ref(false);
+        // Init VUEX store
         const store = useStore();
+        // Initialize user selected theme, if he didnt select yet, set the 'light theme by default.
         const initTheme = () => {
             const currentTheme = localStorage.getItem('theme');
-            if (currentTheme === 'light') {
-                localStorage.setItem('theme', 'light');
-                store.dispatch('uiModule/switchThemeMode', 'light');
-            } else {
+            if (currentTheme === 'dark') {
                 localStorage.setItem('theme', 'dark');
                 store.dispatch('uiModule/switchThemeMode', 'dark');
+                toggleActive.value = true;
+            } else {
+                localStorage.setItem('theme', 'light');
+                store.dispatch('uiModule/switchThemeMode', 'light');
             }
         };
+        // Call the theme initializer.
         initTheme();
+
         // OnClick Function
         function toggleBtn() {
             const currentTheme = localStorage.getItem('theme');
             if (currentTheme === 'dark') {
                 localStorage.setItem('theme', 'light');
                 store.dispatch('uiModule/switchThemeMode', 'light');
+                toggleActive.value = false;
             } else {
                 localStorage.setItem('theme', 'dark');
                 store.dispatch('uiModule/switchThemeMode', 'dark');
+                toggleActive.value = true;
             }
         }
 
         const darkModeStatus = computed(
             () => store.getters['uiModule/getDarkModeStatus']
         );
-
-        const switchStatusClass = computed(() => {
-            if (darkModeStatus.value === 'dark') {
-                // return 'justify-end';
-                return '';
-            } else {
-                return '';
-            }
-        });
 
         const switchBgColor = computed(() => {
             if (darkModeStatus.value === 'dark') {
@@ -139,7 +137,8 @@ export default {
                 document.documentElement.classList.remove('dark');
             }
         }
-        themeSwitcher();
+        onBeforeMount(() => themeSwitcher());
+
         watch(darkModeStatus, () => {
             themeSwitcher();
         });
@@ -148,9 +147,9 @@ export default {
         return {
             darkModeStatus,
             toggleBtn,
-            switchStatusClass,
             switchBgColor,
-            ariaStatus
+            ariaStatus,
+            toggleActive
         };
     }
 };

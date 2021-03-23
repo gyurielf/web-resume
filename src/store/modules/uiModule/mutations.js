@@ -10,5 +10,9 @@ export default {
     },*/
     switchThemeMode(state, payload) {
         state.darkModeStatus = payload;
+    },
+    SET_THEME(state, theme) {
+        state.theme = theme;
+        localStorage.theme = theme;
     }
 };

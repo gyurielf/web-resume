@@ -6,7 +6,8 @@ const uiModule = {
     namespaced: true,
     state() {
         return {
-            darkModeStatus: 'light'
+            darkModeStatus: 'light',
+            theme: false
         };
     },
     mutations: uiMutations,
