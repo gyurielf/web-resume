@@ -15,12 +15,16 @@ module.exports = {
             },
             spacing: {
                 18: '4.5rem'
+            },
+            translate: {
+                8.2: '2.2rem'
             }
         }
     },
     variants: {
         extend: {
-            backgroundColor: ['active']
+            backgroundColor: ['active'],
+            transform: ['active']
         }
     },
     plugins: []

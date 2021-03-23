@@ -1,7 +1,6 @@
 <template>
     <div class="grid">
         <the-navigation></the-navigation>
-        <button @click="themeToggler">THEME SWITCHER</button>
         <router-view class="mt-3"></router-view>
     </div>
 </template>
@@ -10,48 +9,7 @@ import TheNavigation from '@/components/nav/TheNavigation';
 
 export default {
     name: 'App',
-    components: { TheNavigation },
-    data() {
-        return {};
-    },
-    methods: {
-        themeToggler() {
-            const currentTheme = localStorage.getItem('theme');
-            if (currentTheme === 'dark') {
-                localStorage.setItem('theme', 'light');
-            } else {
-                localStorage.setItem('theme', 'dark');
-            }
-            this.themeSwitcher();
-            console.log(currentTheme);
-        },
-        themeSwitcher() {
-            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-            if (
-                localStorage.theme === 'dark' ||
-                (!('theme' in localStorage) &&
-                    window.matchMedia('(prefers-color-scheme: dark)').matches)
-            ) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-            // Whenever the user explicitly chooses light mode
-            // localStorage.theme = 'light';
-            // Whenever the user explicitly chooses dark mode
-            // localStorage.theme = 'dark';
-            // Whenever the user explicitly chooses to respect the OS preference
-            // localStorage.removeItem('theme');
-            // if (localStorage.theme === 'dark') {
-            //     document.documentElement.classList.add('dark');
-            // } else {
-            //     document.documentElement.classList.remove('dark');
-            // }
-        }
-    },
-    created() {
-        // this.themeSwitcher();
-    }
+    components: { TheNavigation }
 };
 </script>
 

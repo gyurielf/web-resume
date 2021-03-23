@@ -32,21 +32,28 @@
                         </linearGradient>
                     </defs></svg
                 ><button
-                    style="background-color: rgb(17, 24, 39);"
+                    :style="switchBgColor"
                     id="headlessui-switch-1"
                     role="switch"
                     tabindex="0"
-                    class="inline-flex items-center px-0.5 rounded-full w-18 h-9 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:ring-gray-500 focus:outline-none"
-                    :class="switchStatus"
-                    :aria-checked="isOn"
+                    class="flex items-center px-0.5 rounded-full w-18 h-9 transition-colors duration-300 ease-in-out focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:ring-gray-500 focus:outline-none"
+                    :class="switchStatusClass"
+                    aria-checked="{{ariaStatus}}"
                     @click="toggleBtn"
                 >
-                    <span class="sr-only">Enable dark mode</span
-                    ><span
-                        class="bg-white rounded-full w-8 h-8"
+                    <span class="sr-only">Enable dark mode</span>
+                    <input
+                        :value="ariaStatus"
+                        type="checkbox"
+                        class="appearance-none bg-white rounded-full w-8 h-8
+                        transform duration-300 ease-in-out cursor-pointer focus:outline-none"
+                        :class="{
+                            'translate-x-8.2': darkModeStatus === 'dark'
+                        }"
                         style="box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px, rgba(0, 0, 0, 0.1) 0px 1px 1px; transform-origin: 50% 50% 0px;"
-                    ></span></button
-                ><svg
+                    />
+                </button>
+                <svg
                     width="24"
                     height="24"
                     fill="currentColor"
@@ -64,27 +71,104 @@
 </template>
 
 <script>
+import { computed, watch } from 'vue';
+import { useStore } from 'vuex';
 export default {
     name: 'SwitchButton',
-    data() {
-        return {
-            isOn: false
-        };
-    },
-    computed: {
-        switchStatus() {
-            if (this.isOn === true) {
-                return 'justify-end';
+    setup() {
+        const store = useStore();
+        const initTheme = () => {
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme === 'light') {
+                localStorage.setItem('theme', 'light');
+                store.dispatch('uiModule/switchThemeMode', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+                store.dispatch('uiModule/switchThemeMode', 'dark');
             }
-            return '';
+        };
+        initTheme();
+        // OnClick Function
+        function toggleBtn() {
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme === 'dark') {
+                localStorage.setItem('theme', 'light');
+                store.dispatch('uiModule/switchThemeMode', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+                store.dispatch('uiModule/switchThemeMode', 'dark');
+            }
         }
-    },
-    methods: {
-        toggleBtn() {
-            this.isOn = !this.isOn;
+
+        const darkModeStatus = computed(
+            () => store.getters['uiModule/getDarkModeStatus']
+        );
+
+        const switchStatusClass = computed(() => {
+            if (darkModeStatus.value === 'dark') {
+                // return 'justify-end';
+                return '';
+            } else {
+                return '';
+            }
+        });
+
+        const switchBgColor = computed(() => {
+            if (darkModeStatus.value === 'dark') {
+                return 'background-color: rgb(17, 24, 39)';
+            }
+            return 'background-color:rgb(96, 211, 96)';
+        });
+
+        const ariaStatus = computed(() => {
+            if (darkModeStatus.value === 'dark') {
+                return 'true';
+            }
+            return 'false';
+        });
+
+        function themeSwitcher() {
+            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+            if (
+                localStorage.theme === 'dark' ||
+                (!('theme' in localStorage) &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
         }
+        themeSwitcher();
+        watch(darkModeStatus, () => {
+            themeSwitcher();
+        });
+        // watch(switchStatusClass, () => {});
+
+        return {
+            darkModeStatus,
+            toggleBtn,
+            switchStatusClass,
+            switchBgColor,
+            ariaStatus
+        };
     }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.theme-switch-enter-to,
+.theme-switch-leave-from {
+    opacity: 1;
+}
+.theme-switch-enter-active {
+    transition: opacity 0.3s ease-out;
+}
+.theme-switch-leave-active {
+    transition: opacity 0.3s ease-in;
+}
+.theme-switch-enter-from,
+.theme-switch-leave-to {
+    opacity: 0;
+}
+</style>
