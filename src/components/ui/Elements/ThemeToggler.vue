@@ -48,7 +48,7 @@
                             type="checkbox"
                             :checked="toggleActive"
                             class="appearance-none bg-white rounded-full w-8 h-8
-                        transform duration-300 ease-in-out cursor-pointer focus:outline-none"
+                        transform duration-300 ease-in-out cursor-pointer outline-none focus:outline-none"
                             :class="{
                                 'translate-x-8.2': theme === 'dark'
                             }"
@@ -100,10 +100,7 @@ export default {
         });
 
         const toggleActive = computed(() => {
-            if (theme.value === 'dark') {
-                return true;
-            }
-            return false;
+            return theme.value === 'dark';
         });
 
         // const isChecked = ref(false);
