@@ -6,7 +6,7 @@
             >
                 <div class="flex justify-start lg:w-0 lg:flex-1">
                     <a href="#">
-                        <span class="sr-only">Kállai György</span>
+                        <span class="sr-only">{{ $t('brand') }}</span>
                         <h1 class="text-3xl dark:text-gray-200">
                             {{ $t('brand') }}
                         </h1>

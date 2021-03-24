@@ -17,7 +17,7 @@
     </form>-->
 
     <div
-        @focusout="dropDownIsActive = false"
+        v-click-outside="closeDropdown"
         class="relative inline-block text-left"
     >
         <div>
@@ -31,7 +31,7 @@
                 aria-haspopup="true"
                 @click="toggleDropDown"
             >
-                Options
+                {{ currentLocale.toUpperCase() }}
                 <!-- Heroicon name: solid/chevron-down -->
                 <svg
                     class="-mr-1 ml-2 h-5 w-5"
@@ -50,9 +50,9 @@
         </div>
 
         <transition name="dropdown">
-            <div v-if="dropDownIsActive">
+            <div v-show="dropDownIsActive">
                 <div
-                    class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg
+                    class="origin-top-right absolute right-0 mt-2 px-4 rounded-md shadow-lg
                     bg-gray-200 dark:border-gray-600 dark:bg-gray-700
                     ring-1 ring-black ring-opacity-5 focus:outline-none"
                     role="menu"
@@ -62,28 +62,15 @@
                     <div class="py-1" role="none">
                         <a
                             href="#"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                            class="block px-4 rounded-md py-2 text-sm text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800"
                             role="menuitem"
                             v-for="optionLocale in supportLocales"
                             :key="optionLocale"
                             :value="optionLocale"
+                            @click="currentLocale = optionLocale"
                         >
-                            {{ optionLocale }}
+                            {{ optionLocale.toUpperCase() }}
                         </a>
-                        <!--                        <form
-                            method="POST"
-                            action="#"
-                            role="none"
-                            @submit.prevent
-                        >
-                            <button
-                                type="submit"
-                                class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                                role="menuitem"
-                            >
-                                Sign out
-                            </button>
-                        </form>-->
                     </div>
                 </div>
             </div>
@@ -105,13 +92,15 @@ export default {
         const toggleDropDown = () => {
             dropDownIsActive.value = !dropDownIsActive.value;
         };
+        const closeDropdown = () => (dropDownIsActive.value = false);
 
         return {
             currentLocale: inject('currentLocale'),
             t: inject('t'),
             supportLocales: inject('supportLocales'),
             dropDownIsActive,
-            toggleDropDown
+            toggleDropDown,
+            closeDropdown
         };
     }
 };
