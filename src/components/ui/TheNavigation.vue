@@ -8,7 +8,7 @@
                     <a href="#">
                         <span class="sr-only">Kállai György</span>
                         <h1 class="text-3xl dark:text-gray-200">
-                            Kállai György
+                            {{ $t('brand') }}
                         </h1>
                     </a>
                 </div>
@@ -590,12 +590,13 @@
                 <div
                     class="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
                 >
-                    <a
+                    <!--                    <a
                         href="#"
                         class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
                     >
                         Sign in
-                    </a>
+                    </a>-->
+                    <language-selector></language-selector>
                     <!--                    <switch-button></switch-button>-->
                     <theme-toggler></theme-toggler>
                 </div>
@@ -880,11 +881,13 @@
 // import { useI18n } from 'vue-i18n';
 // import { SUPPORT_LOCALES } from '/Work/Front-End/VUE_Projects/web-resume/i18n';
 import ThemeToggler from '@/components/ui/Elements/ThemeToggler';
+import LanguageSelector from '@/components/ui/Elements/LanguageSelector';
 // import SwitchButton from '@/components/ui/Elements/SwitchButton';
 // export default defineComponent({
 export default {
     name: 'TheNavigation',
     components: {
+        LanguageSelector,
         ThemeToggler
         // SwitchButton
     }

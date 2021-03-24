@@ -1,10 +1,11 @@
 {
+    "brand": "Gyorgy Kallai",
     "pages": {
         "home": "This page is home page",
         "about": "This page is about page"
     },
-    "navigations": {
-        "home": "Home",
+    "navigation": {
+        "home": "Homes",
         "about": "About"
     },
     "labels": {

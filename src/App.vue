@@ -1,6 +1,10 @@
 <template>
     <div>
-        <the-navigation></the-navigation>
+        <the-navigation
+            :currentLocale="currentLocale"
+            :supportLocales="supportLocales"
+            :t="t"
+        ></the-navigation>
         <router-view class="mt-3 mb-8"></router-view>
         <the-footer></the-footer>
     </div>
@@ -8,7 +12,7 @@
 <script>
 import TheNavigation from '@/components/ui/TheNavigation';
 import TheFooter from '@/components/ui/TheFooter';
-import { computed, onBeforeMount, ref, watch } from 'vue';
+import { computed, onBeforeMount, ref, watch, provide } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
@@ -17,7 +21,6 @@ import { SUPPORT_LOCALES } from '../i18n';
 export default {
     name: 'App',
     components: { TheFooter, TheNavigation },
-    // for me this is `layouts/Default.vue`, but for you it may be `App.vue` or something else
     setup() {
         // Init Vuex Store
         const store = useStore();
@@ -75,6 +78,10 @@ export default {
         /**
          * end initialize i18n
          **/
+
+        provide('currentLocale', currentLocale);
+        provide('supportLocales', SUPPORT_LOCALES);
+        provide('t', t);
 
         return { t, locale, currentLocale, supportLocales: SUPPORT_LOCALES };
     }
