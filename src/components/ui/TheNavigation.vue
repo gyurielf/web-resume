@@ -42,7 +42,10 @@
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
                         <button
                             type="button"
-                            class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4
+                py-2 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none
+                focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent
+                text-sm text-gray-500"
                             aria-expanded="false"
                         >
                             <span>Solutions</span>
@@ -329,13 +332,19 @@
 
                     <a
                         href="#"
-                        class="text-base font-medium text-gray-500 hover:text-gray-900"
+                        class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4
+                py-2 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none
+                focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent
+                text-sm text-gray-500"
                     >
                         Pricing
                     </a>
                     <a
                         href="#"
-                        class="text-base font-medium text-gray-500 hover:text-gray-900"
+                        class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4
+                py-2 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none
+                focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent
+                text-sm text-gray-500"
                     >
                         Docs
                     </a>
@@ -344,7 +353,10 @@
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
                         <button
                             type="button"
-                            class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4
+                py-2 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none
+                focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent
+                text-sm text-gray-500"
                             aria-expanded="false"
                         >
                             <span>More</span>

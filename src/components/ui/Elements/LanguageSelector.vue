@@ -1,31 +1,16 @@
 <template>
     <!--    <form class="language">
         <label>{{ t('labels.language') }}</label>
-        <select
-            v-model="currentLocale"
-            class="rounded-md shadow-sm p-1 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:ring-gray-500 focus:outline-none"
-        >
-            <option
-                v-for="optionLocale in supportLocales"
-                :key="optionLocale"
-                :value="optionLocale"
-                class="transform -translate-y-2"
-            >
-                {{ optionLocale }}
-            </option>
-        </select>
-    </form>-->
-
+        -->
     <div
         v-click-outside="closeDropdown"
-        class="relative inline-block text-left"
+        class="relative inline-block text-left mr-2"
     >
         <div>
             <button
                 type="button"
-                class="inline-flex justify-center w-full rounded-md border border-gray-300 dark:border-gray-700 shadow-sm px-4
-                py-2 bg-gray-200 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none
-                focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent"
+                class="inline-flex justify-center w-full dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4 py-2 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent text-sm text-gray-500"
+                :class="{ active: dropDownIsActive }"
                 id="options-menu"
                 aria-expanded="true"
                 aria-haspopup="true"
@@ -52,8 +37,8 @@
         <transition name="dropdown">
             <div v-show="dropDownIsActive">
                 <div
-                    class="origin-top-right absolute right-0 mt-2 px-4 rounded-md shadow-lg
-                    bg-gray-200 dark:border-gray-600 dark:bg-gray-700
+                    class="origin-top-right absolute right-0 mt-2 px-2 rounded-md shadow-lg
+                    bg-gray-100 dark:border-gray-600 dark:bg-gray-700
                     ring-1 ring-black ring-opacity-5 focus:outline-none"
                     role="menu"
                     aria-orientation="vertical"
@@ -62,7 +47,7 @@
                     <div class="py-1" role="none">
                         <a
                             href="#"
-                            class="block px-4 rounded-md py-2 text-sm text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800"
+                            class="block px-4 rounded-md text-sm py-2 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800"
                             role="menuitem"
                             v-for="optionLocale in supportLocales"
                             :key="optionLocale"
@@ -79,9 +64,7 @@
 </template>
 
 <script>
-// import { watch } from 'vue';
-
-import { inject, ref } from 'vue';
+import { inject, ref, watch } from 'vue';
 
 export default {
     name: 'LanguageSelector',
@@ -92,10 +75,16 @@ export default {
         const toggleDropDown = () => {
             dropDownIsActive.value = !dropDownIsActive.value;
         };
+
         const closeDropdown = () => (dropDownIsActive.value = false);
+        const currentLocale = inject('currentLocale');
+
+        watch(currentLocale, () => {
+            closeDropdown();
+        });
 
         return {
-            currentLocale: inject('currentLocale'),
+            currentLocale,
             t: inject('t'),
             supportLocales: inject('supportLocales'),
             dropDownIsActive,

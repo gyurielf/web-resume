@@ -34,8 +34,7 @@ export default {
 
         const theme = computed(() => store.getters['uiModule/getTheme']);
 
-        // eslint-disable-next-line no-unused-vars
-        watch(theme, (newTheme, oldTheme) => {
+        watch(theme, newTheme => {
             if (newTheme === 'light') {
                 document.querySelector('html').classList.remove('dark');
             } else {
