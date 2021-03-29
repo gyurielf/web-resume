@@ -28,13 +28,23 @@ export function setI18nLanguage(i18n, locale) {
 }
 
 export async function loadLocaleMessages(i18n, locale) {
-    // load locale messages with dynamic import
-    const messages = await import(
-        /* webpackChunkName: "locale-[request]" */ `./src/locales/${locale}.json`
-    );
-    console.log('SZÍSZZZ');
-    // set locale and locale message
-    i18n.global.setLocaleMessage(locale, messages.default);
+    // load locale messages with dynamic import --- LOCAL FILE IMPORT
+    // const messages = await import(
+    //     /* webpackChunkName: "locale-[request]" */ `./src/locales/${locale}.json`
+    // );
+
+    // REST API CALL
+    const messages = (
+        await axios.get(
+            `https://web-resume-ecf64-default-rtdb.europe-west1.firebasedatabase.app/i18n/${locale}.json`
+        )
+    ).data;
+
+    // set locale and locale message -- LOCAL FILE IMPORT
+    // await i18n.global.setLocaleMessage(locale, messages.default);
+
+    // REST API VERSION
+    await i18n.global.setLocaleMessage(locale, messages);
 
     return nextTick();
 }

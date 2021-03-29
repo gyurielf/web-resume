@@ -5,8 +5,21 @@
         "about": "This page is about page"
     },
     "navigation": {
-        "home": "Homes",
-        "about": "About"
+        "home": "Home",
+        "about": "About",
+        "skills": {
+            "default": "Skills",
+            "subMenus": {
+                "analytics": {
+                    "default": "Analitics",
+                    "shortDesc": "lorem ipsum"
+                },
+                "developer": {
+                    "default": "kaka",
+                    "shortDesc": "lorem ipsum"
+                }
+            }
+        }
     },
     "labels": {
         "language": "Languages"

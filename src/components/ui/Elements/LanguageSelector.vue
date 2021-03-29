@@ -9,7 +9,7 @@
         <div>
             <button
                 type="button"
-                class="inline-flex justify-center w-full dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4 py-2 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent text-sm text-gray-500"
+                class="inline-flex justify-center w-full dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4 py-2 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent text-sm text-gray-500 dark:active:bg-black"
                 :class="{ active: dropDownIsActive }"
                 id="options-menu"
                 aria-expanded="true"
@@ -23,7 +23,7 @@
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
-                    aria-hidden="true"
+                    :aria-hidden="dropDownIsActive"
                 >
                     <path
                         fill-rule="evenodd"

@@ -23,17 +23,18 @@
                     <h2
                         class="text-base text-indigo-600 font-semibold tracking-wide uppercase"
                     >
-                        Transactions
+                        Technologyes
                     </h2>
                     <p
-                        class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+                        class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-800 dark:text-gray-200 sm:text-4xl"
                     >
-                        A better way to send money
+                        Lifelong learning is a must!
                     </p>
-                    <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                        Lorem ipsum dolor sit amet consect adipisicing elit.
-                        Possimus magnam voluptatum cupiditate veritatis in
-                        accusamus quisquam.
+                    <p
+                        class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto italic"
+                    >
+                        It is the important for everyone. But for us, is this
+                        the way to survive.
                     </p>
                 </div>
 
@@ -44,36 +45,46 @@
                         <div class="relative">
                             <dt>
                                 <div
-                                    class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"
+                                    class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white p-2"
                                 >
                                     <!-- Heroicon name: outline/globe-alt -->
                                     <svg
-                                        class="h-6 w-6"
+                                        version="1.1"
+                                        viewBox="0 0 261.76 226.69"
                                         xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        aria-hidden="true"
                                     >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                                        />
+                                        <g
+                                            transform="matrix(1.3333 0 0 -1.3333 -76.311 313.34)"
+                                        >
+                                            <g
+                                                transform="translate(178.06 235.01)"
+                                            >
+                                                <path
+                                                    d="m0 0-22.669-39.264-22.669 39.264h-75.491l98.16-170.02 98.16 170.02z"
+                                                    fill="#ffffff"
+                                                />
+                                            </g>
+                                            <g
+                                                transform="translate(178.06 235.01)"
+                                            >
+                                                <path
+                                                    d="m0 0-22.669-39.264-22.669 39.264h-36.227l58.896-102.01 58.896 102.01z"
+                                                    fill="#34495e"
+                                                />
+                                            </g>
+                                        </g>
                                     </svg>
                                 </div>
                                 <p
-                                    class="ml-16 text-lg leading-6 font-medium text-gray-900"
+                                    class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-gray-400"
                                 >
-                                    Competitive exchange rates
+                                    Vue - Vuex, Vue Router, i18n
                                 </p>
                             </dt>
                             <dd class="mt-2 ml-16 text-base text-gray-500">
-                                Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Maiores impedit perferendis
-                                suscipit eaque, iste dolor cupiditate blanditiis
-                                ratione.
+                                I started learning right before the Vue 3
+                                release. So I have to re-crawl the entire
+                                documentation and course for up to date myself.
                             </dd>
                         </div>
 
@@ -100,16 +111,15 @@
                                     </svg>
                                 </div>
                                 <p
-                                    class="ml-16 text-lg leading-6 font-medium text-gray-900"
+                                    class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-gray-400"
                                 >
-                                    No hidden fees
+                                    NodeJS - Express, MongoDB, JWT Auth
                                 </p>
                             </dt>
                             <dd class="mt-2 ml-16 text-base text-gray-500">
-                                Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Maiores impedit perferendis
-                                suscipit eaque, iste dolor cupiditate blanditiis
-                                ratione.
+                                I built a REST API backend for a demo projects,
+                                with transaction handling and auth. For
+                                front-end I picked PUG templating with SSR.
                             </dd>
                         </div>
 

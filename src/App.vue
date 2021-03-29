@@ -1,10 +1,6 @@
 <template>
     <div>
-        <the-navigation
-            :currentLocale="currentLocale"
-            :supportLocales="supportLocales"
-            :t="t"
-        ></the-navigation>
+        <the-navigation></the-navigation>
         <router-view class="mt-3 mb-8"></router-view>
         <the-footer></the-footer>
     </div>
@@ -12,13 +8,20 @@
 <script>
 import TheNavigation from '@/components/ui/TheNavigation';
 import TheFooter from '@/components/ui/TheFooter';
-import { computed, onBeforeMount, ref, watch, provide } from 'vue';
+import {
+    computed,
+    onBeforeMount,
+    ref,
+    watch,
+    provide,
+    defineComponent
+} from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { SUPPORT_LOCALES } from '../i18n';
 
-export default {
+export default defineComponent({
     name: 'App',
     components: { TheFooter, TheNavigation },
     setup() {
@@ -50,6 +53,7 @@ export default {
          **/
         const router = useRouter();
         const { t, locale } = useI18n({ useScope: 'global' });
+
         /**
          * select locale value for language select form
          *
@@ -58,6 +62,7 @@ export default {
          * To avoid this, use the anoter locale reactive value.
          */
         const currentLocale = ref(locale.value);
+
         // sync to switch locale from router locale path
         watch(router.currentRoute, route => {
             currentLocale.value = route.params.locale;
@@ -84,7 +89,7 @@ export default {
 
         return { t, locale, currentLocale, supportLocales: SUPPORT_LOCALES };
     }
-};
+});
 </script>
 
 <style></style>

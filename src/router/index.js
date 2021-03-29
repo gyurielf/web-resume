@@ -46,11 +46,10 @@ export function setupRouter(i18n) {
 
         // load locale messages
         if (!i18n.global.availableLocales.includes(paramsLocale)) {
-            // console.log('Router loadLocalMessages');
+            console.log('SZASZ-router');
             await loadLocaleMessages(i18n, paramsLocale);
         }
-        // console.log(paramsLocale);
-        // console.log(!i18n.global.availableLocales.includes(paramsLocale));
+
         // set i18n language
         setI18nLanguage(i18n, paramsLocale);
 
