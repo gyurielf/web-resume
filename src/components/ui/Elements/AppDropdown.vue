@@ -25,6 +25,7 @@ export default {
         const sharedState = reactive({
             active: false
         });
+
         provide('sharedState', sharedState);
 
         const toggleDropDown = () => (sharedState.active = !sharedState.active);

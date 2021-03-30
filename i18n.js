@@ -27,24 +27,36 @@ export function setI18nLanguage(i18n, locale) {
     document.querySelector('html').setAttribute('lang', locale);
 }
 
-export async function loadLocaleMessages(i18n, locale) {
+/*export async function loadLocaleMessages(i18n, locale) {
     // load locale messages with dynamic import --- LOCAL FILE IMPORT
-    // const messages = await import(
-    //     /* webpackChunkName: "locale-[request]" */ `./src/locales/${locale}.json`
-    // );
-
-    // REST API CALL
-    const messages = (
-        await axios.get(
-            `https://web-resume-ecf64-default-rtdb.europe-west1.firebasedatabase.app/i18n/${locale}.json`
-        )
-    ).data;
+    const messages = await import(
+        /!* webpackChunkName: "locale-[request]" *!/ `./src/locales/${locale}.json`
+    );
 
     // set locale and locale message -- LOCAL FILE IMPORT
-    // await i18n.global.setLocaleMessage(locale, messages.default);
+    i18n.global.setLocaleMessage(locale, messages.default);
+
+    // REST API CALL
+    // const messages = (
+    //     await axios.get(
+    //         `https://web-resume-ecf64-default-rtdb.europe-west1.firebasedatabase.app/i18n/${locale}.json`
+    //     )
+    // ).data;
 
     // REST API VERSION
-    await i18n.global.setLocaleMessage(locale, messages);
+    // i18n.global.setLocaleMessage(locale, messages);
+
+    return nextTick();
+}*/
+
+export async function loadLocaleMessages(i18n, locale) {
+    // load locale messages with dynamic import
+    const messages = await import(
+        /* webpackChunkName: "locale-[request]" */ `./src/locales/${locale}.json`
+    );
+
+    // set locale and locale message
+    await i18n.global.setLocaleMessage(locale, messages.default);
 
     return nextTick();
 }

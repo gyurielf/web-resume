@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import { inject, ref, watch } from 'vue';
+import { inject, ref } from 'vue';
 
 export default {
     name: 'LanguageSelector',
@@ -78,10 +78,10 @@ export default {
 
         const closeDropdown = () => (dropDownIsActive.value = false);
         const currentLocale = inject('currentLocale');
-
-        watch(currentLocale, () => {
-            closeDropdown();
-        });
+        console.log(currentLocale);
+        // watch(currentLocale, () => {
+        //     closeDropdown();
+        // });
 
         return {
             currentLocale,

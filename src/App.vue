@@ -53,7 +53,6 @@ export default defineComponent({
          **/
         const router = useRouter();
         const { t, locale } = useI18n({ useScope: 'global' });
-
         /**
          * select locale value for language select form
          *
@@ -62,7 +61,6 @@ export default defineComponent({
          * To avoid this, use the anoter locale reactive value.
          */
         const currentLocale = ref(locale.value);
-
         // sync to switch locale from router locale path
         watch(router.currentRoute, route => {
             currentLocale.value = route.params.locale;
@@ -79,6 +77,7 @@ export default defineComponent({
                 params: { locale: val }
             });
         });
+
         /**
          * end initialize i18n
          **/

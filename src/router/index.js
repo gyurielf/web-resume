@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { setI18nLanguage, loadLocaleMessages, SUPPORT_LOCALES } from '/i18n';
 
-import Home from '../views/Home.vue';
-import About from '../views/About.vue';
+import Home from '@/views/Home';
+import About from '@/views/About';
 
 export function setupRouter(i18n) {
     const locale =
@@ -40,13 +40,11 @@ export function setupRouter(i18n) {
 
         // use locale if paramsLocale is not in SUPPORT_LOCALES
         if (!SUPPORT_LOCALES.includes(paramsLocale)) {
-            console.log('paramslocale');
             return next(`/${locale}`);
         }
 
         // load locale messages
         if (!i18n.global.availableLocales.includes(paramsLocale)) {
-            console.log('SZASZ-router');
             await loadLocaleMessages(i18n, paramsLocale);
         }
 
