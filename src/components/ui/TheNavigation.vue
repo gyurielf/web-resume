@@ -40,31 +40,28 @@
                 <nav class="hidden md:flex space-x-10">
                     <div class="relative">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-                        <app-dropdown :dropdown-type="'hover'">
+                        <app-dropdown
+                            :dropdown-type="'hover'"
+                            :type="'button'"
+                            :slot-class="
+                                `text-gray-500 group rounded-md inline-flex items-center text-base font-medium dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent text-sm text-gray-500`
+                            "
+                        >
                             <template v-slot:dropDownToggler>
-                                <button
-                                    type="button"
-                                    class="text-gray-500 group rounded-md inline-flex items-center text-base font-medium dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4
-                                    py-2 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none
-                                    focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent
-                                    text-sm text-gray-500"
-                                    aria-expanded="false"
+                                <span>Skills</span>
+                                <svg
+                                    class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true"
                                 >
-                                    <span>Skills</span>
-                                    <svg
-                                        class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            clip-rule="evenodd"
-                                        />
-                                    </svg>
-                                </button>
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
                             </template>
                             <app-dropdown-content>
                                 <div
@@ -80,35 +77,33 @@
                                                 href="#"
                                                 class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                                             >
-                                                <!-- Heroicon name: outline/chart-bar -->
                                                 <svg
                                                     class="flex-shrink-0 h-6 w-6 text-indigo-600"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
                                                     viewBox="0 0 24 24"
                                                     stroke="currentColor"
-                                                    aria-hidden="true"
                                                 >
                                                     <path
                                                         stroke-linecap="round"
                                                         stroke-linejoin="round"
                                                         stroke-width="2"
-                                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                                                     />
                                                 </svg>
                                                 <div class="ml-4">
                                                     <p
                                                         class="text-base font-medium text-gray-900"
                                                     >
-                                                        Analytics
+                                                        Development
                                                     </p>
                                                     <p
                                                         class="mt-1 text-sm text-gray-500"
                                                     >
-                                                        Get a better
-                                                        understanding of where
-                                                        your traffic is coming
-                                                        from.
+                                                        I'm engaged in front-end
+                                                        development, but I have
+                                                        some full-stack
+                                                        experience as well.
                                                     </p>
                                                 </div>
                                             </a>
@@ -124,27 +119,26 @@
                                                     fill="none"
                                                     viewBox="0 0 24 24"
                                                     stroke="currentColor"
-                                                    aria-hidden="true"
                                                 >
                                                     <path
                                                         stroke-linecap="round"
                                                         stroke-linejoin="round"
                                                         stroke-width="2"
-                                                        d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                                                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
                                                     />
                                                 </svg>
                                                 <div class="ml-4">
                                                     <p
                                                         class="text-base font-medium text-gray-900"
                                                     >
-                                                        Engagement
+                                                        Project Management
                                                     </p>
                                                     <p
                                                         class="mt-1 text-sm text-gray-500"
                                                     >
-                                                        Speak directly to your
-                                                        customers in a more
-                                                        meaningful way.
+                                                        Managed huge and small
+                                                        project in various
+                                                        environment.
                                                     </p>
                                                 </div>
                                             </a>
@@ -153,27 +147,25 @@
                                                 href="#"
                                                 class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                                             >
-                                                <!-- Heroicon name: outline/shield-check -->
                                                 <svg
                                                     class="flex-shrink-0 h-6 w-6 text-indigo-600"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
                                                     viewBox="0 0 24 24"
                                                     stroke="currentColor"
-                                                    aria-hidden="true"
                                                 >
                                                     <path
                                                         stroke-linecap="round"
                                                         stroke-linejoin="round"
                                                         stroke-width="2"
-                                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                                        d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
                                                     />
                                                 </svg>
                                                 <div class="ml-4">
                                                     <p
                                                         class="text-base font-medium text-gray-900"
                                                     >
-                                                        Security
+                                                        Online Marketing
                                                     </p>
                                                     <p
                                                         class="mt-1 text-sm text-gray-500"
@@ -189,34 +181,31 @@
                                                 href="#"
                                                 class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                                             >
-                                                <!-- Heroicon name: outline/view-grid -->
                                                 <svg
                                                     class="flex-shrink-0 h-6 w-6 text-indigo-600"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
                                                     viewBox="0 0 24 24"
                                                     stroke="currentColor"
-                                                    aria-hidden="true"
                                                 >
                                                     <path
                                                         stroke-linecap="round"
                                                         stroke-linejoin="round"
                                                         stroke-width="2"
-                                                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                                                        d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                                                     />
                                                 </svg>
                                                 <div class="ml-4">
                                                     <p
                                                         class="text-base font-medium text-gray-900"
                                                     >
-                                                        Integrations
+                                                        PPC Solutions
                                                     </p>
                                                     <p
                                                         class="mt-1 text-sm text-gray-500"
                                                     >
-                                                        Connect with third-party
-                                                        tools that you&#039;re
-                                                        already using.
+                                                        Online advertising
+                                                        experience and platforms
                                                     </p>
                                                 </div>
                                             </a>
@@ -225,27 +214,25 @@
                                                 href="#"
                                                 class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                                             >
-                                                <!-- Heroicon name: outline/refresh -->
                                                 <svg
                                                     class="flex-shrink-0 h-6 w-6 text-indigo-600"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
                                                     viewBox="0 0 24 24"
                                                     stroke="currentColor"
-                                                    aria-hidden="true"
                                                 >
                                                     <path
                                                         stroke-linecap="round"
                                                         stroke-linejoin="round"
                                                         stroke-width="2"
-                                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                                                        d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
                                                     />
                                                 </svg>
                                                 <div class="ml-4">
                                                     <p
                                                         class="text-base font-medium text-gray-900"
                                                     >
-                                                        Automations
+                                                        System Operation
                                                     </p>
                                                     <p
                                                         class="mt-1 text-sm text-gray-500"

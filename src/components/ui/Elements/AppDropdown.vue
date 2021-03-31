@@ -4,29 +4,64 @@
         @mouseenter="openDropDown"
         @mouseleave="closeDropdown"
     >
-        <slot name="dropDownToggler"></slot>
+        <button
+            :type="type"
+            :aria-expanded="sharedState.active"
+            :class="[slotClass, activeClass]"
+        >
+            <slot name="dropDownToggler"></slot>
+        </button>
         <slot />
     </div>
+    <!--    <div
+        v-if="dropdownType === 'hover'"
+        @mouseenter="openDropDown"
+        @mouseleave="closeDropdown"
+        class="menuClass"
+    >
+        <slot name="dropDownToggler"></slot>
+        <slot />
+    </div>-->
     <div v-else @click="toggleDropDown">
+        <div v-click-outside="closeDropdown">
+            <button
+                type="button"
+                :aria-expanded="sharedState.active"
+                :class="{ slotClass, activeClass }"
+            >
+                <slot name="dropDownToggler"></slot>
+            </button>
+        </div>
+        <slot />
+    </div>
+    <!--    <div v-else @click="toggleDropDown">
         <div v-click-outside="closeDropdown">
             <slot name="dropDownToggler"></slot>
         </div>
         <slot />
-    </div>
+    </div>-->
 </template>
 
 <script>
-import { provide, reactive } from 'vue';
+import { computed, provide, reactive } from 'vue';
 
 export default {
     name: 'AppDropdown',
-    props: ['dropdownType'],
+    props: ['dropdownType', 'type', 'slotClass'],
     setup() {
         const sharedState = reactive({
             active: false
         });
 
         provide('sharedState', sharedState);
+
+        const activeClass = computed(() => {
+            if (sharedState.active === true) {
+                return 'dark:bg-gray-700';
+            } else {
+                return 'dark:bg-gray-800';
+            }
+        });
 
         const toggleDropDown = () => (sharedState.active = !sharedState.active);
         const openDropDown = () => (sharedState.active = true);
@@ -35,7 +70,9 @@ export default {
         return {
             toggleDropDown,
             openDropDown,
-            closeDropdown
+            closeDropdown,
+            sharedState,
+            activeClass
         };
     }
 };
