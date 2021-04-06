@@ -29,11 +29,15 @@
         transition-property: transform,width,height;
         will-change: transform,width,height;
     }
+    .SiteMenu[hidden] {
+        --siteMenuRotateX: -15deg;
+    }
     .SiteHeader__menu {
         position: absolute;
         top: 0;
         left: 50%;
     }
+
 
     /*.flip-box-inner {
         transition: 3s;

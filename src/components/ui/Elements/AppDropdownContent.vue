@@ -3,8 +3,12 @@
         class="SiteHeader__menuContainer"
         :style="{ opacity: isActive ? '1' : '0' }"
     >
-        <div :style="activeClass">
-            <slot v-if="isActive" />
+        <div
+            class="SiteMenu SiteHeader__menu pou"
+            :style="[activeClass]"
+            :hidden="!isActive"
+        >
+            <slot />
         </div>
         <!--  <transition name="dropdown">
             <slot v-if="isActive" />
@@ -23,11 +27,12 @@ export default {
         const isActive = computed(() => {
             return sharedState.active;
         });
+
         const activeClass = computed(() => {
             if (isActive.value) {
-                return { '--siteMenuRotateX': 0 };
+                return 'pointer-events: auto';
             } else {
-                return { '--siteMenuRotateX': '-15deg' };
+                return 'pointer-events: none';
             }
         });
 
