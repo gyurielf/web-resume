@@ -1,5 +1,5 @@
 <template>
-    <div class="relative bg-gray-50 dark:bg-gray-800">
+    <div class="absolute top-0 w-full h-auto bg-gray-50 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div
                 class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10"
@@ -38,10 +38,9 @@
                     </button>
                 </div>
                 <nav class="hidden md:flex space-x-10">
-                    <div class="relative">
+                    <div>
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
                         <app-dropdown
-                            :dropdown-type="'hover'"
                             :type="'button'"
                             :slot-class="
                                 `text-gray-500 group rounded-md inline-flex items-center text-base font-medium dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent text-sm text-gray-500`
@@ -65,10 +64,10 @@
                             </template>
                             <app-dropdown-content>
                                 <div
-                                    class="absolute z-10 -ml-4 pt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+                                    class="absolute inline-block z-10 -ml-4 pt-3 px-2 w-screen max-w-md sm:px-0 lg:ml-0 top-0 left-1/2"
                                 >
                                     <div
-                                        class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden"
+                                        class="relative rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden"
                                     >
                                         <div
                                             class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8"

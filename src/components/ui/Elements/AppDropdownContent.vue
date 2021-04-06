@@ -1,9 +1,9 @@
 <template>
-    <transition name="dropdown">
-        <div v-if="isActive">
-            <slot />
-        </div>
-    </transition>
+    <div class="flip-box" :style="{ opacity: isActive ? '1' : '0' }">
+        <transition name="dropdown">
+            <slot v-if="isActive" />
+        </transition>
+    </div>
 </template>
 
 <script>
@@ -17,7 +17,6 @@ export default {
         const isActive = computed(() => {
             return sharedState.active;
         });
-
         return {
             isActive
         };
@@ -27,34 +26,40 @@ export default {
 
 <style scoped>
 .dropdown-enter-from {
-    opacity: 0;
-    -webkit-transform: scale(0.95);
-    transform: scale(0.95);
+    /*opacity: 0;*/
+    pointer-events: none;
+    transform: translateX(-50%) rotateX(-15deg);
 }
 
 .dropdown-enter-active {
-    transition: ease-out 0.075s;
+    transition: 3s;
+    transition-property: opacity, transform;
+    will-change: transform, opacity;
+    transform-origin: 50% -50px;
 }
 
 .dropdown-enter-to {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    pointer-events: auto;
+    transform: translateX(-50%) rotateX(0);
+    /*opacity: 1;*/
 }
 
 .dropdown-leave-from {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    pointer-events: auto;
+    transform: translateX(-50%) rotateX(0);
+    /*opacity: 1;*/
 }
 
 .dropdown-leave-active {
-    transition: ease-in 0.075s;
+    transition: 3s;
+    transition-property: opacity, transform;
+    will-change: transform, opacity;
+    transform-origin: 50% -50px;
 }
 
 .dropdown-leave-to {
-    opacity: 0;
-    -webkit-transform: scale(0.95);
-    transform: scale(0.95);
+    /*opacity: 0;*/
+    pointer-events: none;
+    transform: translateX(-50%) rotateX(-15deg);
 }
 </style>

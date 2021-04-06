@@ -22,16 +22,15 @@
         <slot name="dropDownToggler"></slot>
         <slot />
     </div>-->
-    <div v-else @click="toggleDropDown">
-        <div v-click-outside="closeDropdown">
-            <button
-                type="button"
-                :aria-expanded="sharedState.active"
-                :class="{ slotClass, activeClass }"
-            >
-                <slot name="dropDownToggler"></slot>
-            </button>
-        </div>
+    <div v-else v-click-outside="closeDropdown">
+        <button
+            :type="type"
+            :aria-expanded="sharedState.active"
+            :class="[slotClass, activeClass]"
+            @click="toggleDropDown"
+        >
+            <slot name="dropDownToggler"></slot>
+        </button>
         <slot />
     </div>
     <!--    <div v-else @click="toggleDropDown">

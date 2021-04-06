@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <the-navigation></the-navigation>
-        <router-view class="mt-3 mb-8"></router-view>
-        <the-footer></the-footer>
-    </div>
+    <the-navigation></the-navigation>
+    <router-view class="mt-3 mb-8"></router-view>
+    <the-footer></the-footer>
 </template>
 <script>
 import TheNavigation from '@/components/ui/TheNavigation';
