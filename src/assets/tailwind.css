@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 @layer utilities {
-    .flip-box {
+    .SiteHeader__menuContainer {
         display: block;
         position: absolute;
         top: calc(100% - 1px - 13px);
@@ -19,4 +19,29 @@
         transition-property: opacity;
         transition: 250ms;
     }
+    .SiteMenu {
+        --siteMenuOffset: 0;
+        --siteMenuRotateX: 0;
+        display: inline-block;
+        transform: translateX(-50%) rotateX(var(--siteMenuRotateX));
+        transform-origin: 50% -50px;
+        transition: 250ms;
+        transition-property: transform,width,height;
+        will-change: transform,width,height;
+    }
+    .SiteHeader__menu {
+        position: absolute;
+        top: 0;
+        left: 50%;
+    }
+
+    /*.flip-box-inner {
+        transition: 3s;
+        transition-property: opacity, transform;
+        will-change: transform, opacity;
+        transform-origin: 50% -50px;
+        pointer-events: none;
+        left: 50%;
+        position: absolute;
+    }*/
 }

@@ -1,8 +1,14 @@
 <template>
-    <div class="flip-box" :style="{ opacity: isActive ? '1' : '0' }">
-        <transition name="dropdown">
+    <div
+        class="SiteHeader__menuContainer"
+        :style="{ opacity: isActive ? '1' : '0' }"
+    >
+        <div :style="activeClass">
             <slot v-if="isActive" />
-        </transition>
+        </div>
+        <!--  <transition name="dropdown">
+            <slot v-if="isActive" />
+        </transition>-->
     </div>
 </template>
 
@@ -17,8 +23,17 @@ export default {
         const isActive = computed(() => {
             return sharedState.active;
         });
+        const activeClass = computed(() => {
+            if (isActive.value) {
+                return { '--siteMenuRotateX': 0 };
+            } else {
+                return { '--siteMenuRotateX': '-15deg' };
+            }
+        });
+
         return {
-            isActive
+            isActive,
+            activeClass
         };
     }
 };
@@ -26,40 +41,25 @@ export default {
 
 <style scoped>
 .dropdown-enter-from {
-    /*opacity: 0;*/
-    pointer-events: none;
-    transform: translateX(-50%) rotateX(-15deg);
+    --siteMenuRotateX: -15deg;
 }
 
-.dropdown-enter-active {
-    transition: 3s;
-    transition-property: opacity, transform;
-    will-change: transform, opacity;
-    transform-origin: 50% -50px;
+.dropdown-enter-active,
+.dropdown-leave-active {
+    transition: 250ms;
+    transition-property: transform, width, height;
+    will-change: transform, width, height;
 }
 
 .dropdown-enter-to {
-    pointer-events: auto;
-    transform: translateX(-50%) rotateX(0);
-    /*opacity: 1;*/
+    --siteMenuRotateX: 0deg;
 }
 
 .dropdown-leave-from {
-    pointer-events: auto;
-    transform: translateX(-50%) rotateX(0);
-    /*opacity: 1;*/
-}
-
-.dropdown-leave-active {
-    transition: 3s;
-    transition-property: opacity, transform;
-    will-change: transform, opacity;
-    transform-origin: 50% -50px;
+    --siteMenuRotateX: 0deg;
 }
 
 .dropdown-leave-to {
-    /*opacity: 0;*/
-    pointer-events: none;
-    transform: translateX(-50%) rotateX(-15deg);
+    --siteMenuRotateX: -15deg;
 }
 </style>

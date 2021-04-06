@@ -64,7 +64,7 @@
                             </template>
                             <app-dropdown-content>
                                 <div
-                                    class="absolute inline-block z-10 -ml-4 pt-3 px-2 w-screen max-w-md sm:px-0 lg:ml-0 top-0 left-1/2"
+                                    class="SiteMenu SiteHeader__menu inline-block z-10 -ml-4 pt-3 px-2 w-screen max-w-md sm:px-0 lg:ml-0 top-0 left-1/2"
                                 >
                                     <div
                                         class="relative rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden"
