@@ -38,14 +38,19 @@
         left: 50%;
     }
 
-
-    /*.flip-box-inner {
-        transition: 3s;
-        transition-property: opacity, transform;
-        will-change: transform, opacity;
-        transform-origin: 50% -50px;
-        pointer-events: none;
-        left: 50%;
-        position: absolute;
-    }*/
+    @media (min-width:640px) {
+        .Footer_nav__2rFid {
+            grid-template-rows:repeat(3,auto) 1fr
+        }
+    }
+    @media (min-width:768px) {
+        .Footer_nav__2rFid {
+            grid-template-rows:repeat(3,auto)
+        }
+    }
+    @media (min-width:1024px) {
+        .Footer_nav__2rFid {
+            grid-template-rows:auto 1fr;
+        }
+    }
 }

@@ -3,6 +3,7 @@ import { setI18nLanguage, loadLocaleMessages, SUPPORT_LOCALES } from '/i18n';
 
 import Home from '@/views/Home';
 import About from '@/views/About';
+import DevSkills from '@/views/DevSkills';
 
 export function setupRouter(i18n) {
     const locale =
@@ -14,6 +15,11 @@ export function setupRouter(i18n) {
             path: '/:locale/',
             name: 'home',
             component: Home
+        },
+        {
+            path: '/:locale/developer-skills',
+            name: 'dev-skills',
+            component: DevSkills
         },
         {
             path: '/:locale/about',
@@ -30,8 +36,8 @@ export function setupRouter(i18n) {
     const router = createRouter({
         history: createWebHistory(),
         routes,
-        linkActiveClass: 'bg-gray-300 transition',
-        linkExactActiveClass: 'bg-gray-300 transition'
+        linkActiveClass: 'bg-gray-300 dark:bg-gray-700 transition',
+        linkExactActiveClass: 'bg-gray-300 dark:bg-gray-700 transition'
     });
 
     // navigation guards

@@ -42,7 +42,8 @@
 </template>
 
 <script>
-import { computed, provide, reactive } from 'vue';
+import { computed, provide, reactive, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
 export default {
     name: 'AppDropdown',
@@ -65,6 +66,40 @@ export default {
         const toggleDropDown = () => (sharedState.active = !sharedState.active);
         const openDropDown = () => (sharedState.active = true);
         const closeDropdown = () => (sharedState.active = false);
+
+        const route = useRoute();
+        // console.debug(
+        //     `current route name on component setup init: ${route.fullPath}`
+        // );
+        const routePath = computed(() => route.fullPath);
+        watch(routePath, () => {
+            console.debug(
+                `MyCoolComponent - watch route.fullPath changed to ${route.fullPath}`
+            );
+            closeDropdown();
+            // Do something here...
+            // Optionally you can set immediate: true config for the watcher to run on init
+            //}, { immediate: true });
+        });
+
+        // Second Way
+        /*const route = useRoute();
+        // console.debug(
+        //     `current route name on component setup init: ${route.fullPath}`
+        // );
+        // const routePath = computed(() => route.fullPath);
+        watch(
+            () => route.fullPath,
+            () => {
+                console.debug(
+                    `MyCoolComponent - watch route.fullPath changed to ${route.fullPath}`
+                );
+                closeDropdown();
+                // Do something here...
+                // Optionally you can set immediate: true config for the watcher to run on init
+                //}, { immediate: true });
+            }
+        );*/
 
         return {
             toggleDropDown,

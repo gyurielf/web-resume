@@ -5,7 +5,7 @@
                 class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10"
             >
                 <div class="flex justify-start lg:w-0 lg:flex-1">
-                    <a href="#">
+                    <a href="/">
                         <span class="sr-only">{{ $t('brand') }}</span>
                         <h1 class="text-3xl dark:text-gray-200">
                             {{ $t('brand') }}
@@ -71,14 +71,19 @@
                                         class="relative rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden"
                                     >
                                         <div
-                                            class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8"
+                                            class="relative grid gap-6 bg-white dark:bg-gray-700 px-5 py-6 sm:gap-8 sm:p-8"
                                         >
-                                            <a
-                                                href="#"
-                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                            <router-link
+                                                :to="{
+                                                    name: 'dev-skills',
+                                                    params: {
+                                                        locale: `${$i18n.locale}`
+                                                    }
+                                                }"
+                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600"
                                             >
                                                 <svg
-                                                    class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                                                    class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-indigo-300"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
                                                     viewBox="0 0 24 24"
@@ -93,12 +98,12 @@
                                                 </svg>
                                                 <div class="ml-4">
                                                     <p
-                                                        class="text-base font-medium text-gray-900"
+                                                        class="text-base font-medium text-gray-900 dark:text-gray-300"
                                                     >
                                                         Development
                                                     </p>
                                                     <p
-                                                        class="mt-1 text-sm text-gray-500"
+                                                        class="mt-1 text-sm text-gray-500 dark:text-gray-400"
                                                     >
                                                         I'm engaged in front-end
                                                         development, but I have
@@ -106,15 +111,15 @@
                                                         experience as well.
                                                     </p>
                                                 </div>
-                                            </a>
+                                            </router-link>
 
                                             <a
                                                 href="#"
-                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600"
                                             >
                                                 <!-- Heroicon name: outline/cursor-click -->
                                                 <svg
-                                                    class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                                                    class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-indigo-300"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
                                                     viewBox="0 0 24 24"
@@ -129,12 +134,12 @@
                                                 </svg>
                                                 <div class="ml-4">
                                                     <p
-                                                        class="text-base font-medium text-gray-900"
+                                                        class="text-base font-medium text-gray-900 dark:text-gray-300"
                                                     >
                                                         Project Management
                                                     </p>
                                                     <p
-                                                        class="mt-1 text-sm text-gray-500"
+                                                        class="mt-1 text-sm text-gray-500 dark:text-gray-400"
                                                     >
                                                         Managed huge and small
                                                         project in various
@@ -145,10 +150,10 @@
 
                                             <a
                                                 href="#"
-                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600"
                                             >
                                                 <svg
-                                                    class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                                                    class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-indigo-300"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
                                                     viewBox="0 0 24 24"
@@ -163,12 +168,12 @@
                                                 </svg>
                                                 <div class="ml-4">
                                                     <p
-                                                        class="text-base font-medium text-gray-900"
+                                                        class="text-base font-medium text-gray-900 dark:text-gray-300"
                                                     >
                                                         Online Marketing
                                                     </p>
                                                     <p
-                                                        class="mt-1 text-sm text-gray-500"
+                                                        class="mt-1 text-sm text-gray-500 dark:text-gray-400"
                                                     >
                                                         Your customers&#039;
                                                         data will be safe and
@@ -179,10 +184,10 @@
 
                                             <a
                                                 href="#"
-                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600"
                                             >
                                                 <svg
-                                                    class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                                                    class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-indigo-300"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
                                                     viewBox="0 0 24 24"
@@ -197,12 +202,12 @@
                                                 </svg>
                                                 <div class="ml-4">
                                                     <p
-                                                        class="text-base font-medium text-gray-900"
+                                                        class="text-base font-medium text-gray-900 dark:text-gray-300"
                                                     >
                                                         PPC Solutions
                                                     </p>
                                                     <p
-                                                        class="mt-1 text-sm text-gray-500"
+                                                        class="mt-1 text-sm text-gray-500 dark:text-gray-400"
                                                     >
                                                         Online advertising
                                                         experience and platforms
@@ -212,10 +217,10 @@
 
                                             <a
                                                 href="#"
-                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600"
                                             >
                                                 <svg
-                                                    class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                                                    class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-indigo-300"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
                                                     viewBox="0 0 24 24"
@@ -230,12 +235,12 @@
                                                 </svg>
                                                 <div class="ml-4">
                                                     <p
-                                                        class="text-base font-medium text-gray-900"
+                                                        class="text-base font-medium text-gray-900 dark:text-gray-300"
                                                     >
                                                         System Operation
                                                     </p>
                                                     <p
-                                                        class="mt-1 text-sm text-gray-500"
+                                                        class="mt-1 text-sm text-gray-500 dark:text-gray-400"
                                                     >
                                                         Build strategic funnels
                                                         that will drive your

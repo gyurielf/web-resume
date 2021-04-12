@@ -1,105 +1,81 @@
 <template>
     <footer
-        class="footer bg-white relative pt-1 border-b-2 border-blue-700 dark:bg-gray-800"
+        class="bg-gray-50 pt-16 pb-12 sm:pt-20 md:pt-24 xl:pt-32 sm:pb-20 dark:bg-gray-800"
     >
-        <div class="container max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="sm:flex sm:mt-8">
-                <div
-                    class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between"
-                >
-                    <div class="flex flex-col">
-                        <span
-                            class="font-bold text-gray-700 dark:text-gray-200 uppercase mb-2"
-                            >Footer header 1</span
-                        >
-                        <span class="my-2"
-                            ><a
-                                href="#"
-                                class="text-blue-700  text-md hover:text-blue-500"
-                                >link 1</a
-                            ></span
-                        >
-                        <span class="my-2"
-                            ><a
-                                href="#"
-                                class="text-blue-700  text-md hover:text-blue-500"
-                                >link 1</a
-                            ></span
-                        >
-                        <span class="my-2"
-                            ><a
-                                href="#"
-                                class="text-blue-700  text-md hover:text-blue-500"
-                                >link 1</a
-                            ></span
-                        >
-                    </div>
-                    <div class="flex flex-col">
-                        <span
-                            class="font-bold text-gray-700 dark:text-gray-200 uppercase mt-4 md:mt-0 mb-2"
-                            >Footer header 2</span
-                        >
-                        <span class="my-2"
-                            ><a
-                                href="#"
-                                class="text-blue-700 text-md hover:text-blue-500"
-                                >link 1</a
-                            ></span
-                        >
-                        <span class="my-2"
-                            ><a
-                                href="#"
-                                class="text-blue-700  text-md hover:text-blue-500"
-                                >link 1</a
-                            ></span
-                        >
-                        <span class="my-2"
-                            ><a
-                                href="#"
-                                class="text-blue-700 text-md hover:text-blue-500"
-                                >link 1</a
-                            ></span
-                        >
-                    </div>
-                    <div class="flex flex-col">
-                        <span
-                            class="font-bold text-gray-700 dark:text-gray-200 uppercase mt-4 md:mt-0 mb-2"
-                            >Footer header 3</span
-                        >
-                        <span class="my-2"
-                            ><a
-                                href="#"
-                                class="text-blue-700 dark:text-gray-300 text-md hover:text-blue-500"
-                                >link 1</a
-                            ></span
-                        >
-                        <span class="my-2"
-                            ><a
-                                href="#"
-                                class="text-blue-700 dark:text-gray-300 text-md hover:text-blue-500"
-                                >link 1</a
-                            ></span
-                        >
-                        <span class="my-2"
-                            ><a
-                                href="#"
-                                class="text-blue-700 dark:text-gray-300 text-md hover:text-blue-500 "
-                                >link 1</a
-                            ></span
-                        >
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container mx-auto px-6">
-            <div
-                class="mt-16 border-t-2 border-gray-300 flex flex-col items-center"
+        <div
+            class="max-w-screen-lg xl:max-w-screen-xl mx-auto divide-y divide-gray-200 px-4 sm:px-6 md:px-8"
+        >
+            <ul
+                class="Footer_nav__2rFid text-sm font-medium pb-14 sm:pb-20 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 dark:text-gray-400 dark:group-hover:bg-gray-50"
             >
-                <div class="sm:w-2/3 text-center py-6">
-                    <p class="text-sm text-blue-700 font-bold mb-2">
-                        © 2020 by GY.K
-                    </p>
-                </div>
+                <li class="space-y-5 row-span-2">
+                    <h2
+                        class="text-md font-semibold tracking-wide text-gray-900 dark:text-gray-500 uppercase"
+                    >
+                        Getting started
+                    </h2>
+                    <ul class="space-y-4">
+                        <li>
+                            <a
+                                class="hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-200"
+                                href="https://github.com/gyurielf"
+                            >
+                                GitHub
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-200"
+                                href="https://www.linkedin.com/in/gyorgykallai/"
+                            >
+                                LinkedIn
+                            </a>
+                        </li>
+                        <li></li>
+                        <li>
+                            <a
+                                class="hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-200"
+                                href="https://www.youtube.com/tailwindlabs"
+                            >
+                                valami
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="space-y-5 row-span-2">
+                    <h2
+                        class="text-md font-semibold tracking-wide text-gray-900 dark:text-gray-500 uppercase"
+                    >
+                        Core concepts
+                    </h2>
+                </li>
+                <li class="space-y-5 row-span-2">
+                    <h2
+                        class="text-md font-semibold tracking-wide text-gray-900 dark:text-gray-500 uppercase"
+                    >
+                        Customization
+                    </h2>
+                </li>
+                <li class="space-y-5">
+                    <h2
+                        class="text-md font-semibold tracking-wide text-gray-900 dark:text-gray-500 uppercase"
+                    >
+                        Links
+                    </h2>
+                    <ul class="space-y-4">
+                        <li>
+                            <a
+                                class="hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-200"
+                                href="https://github.com/gyurielf"
+                            >
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="pt-10 sm:pt-12 dark:text-gray-500">
+                2021 © {{ $t('brand') }} - Budapest
             </div>
         </div>
     </footer>

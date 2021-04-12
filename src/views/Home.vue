@@ -1,6 +1,5 @@
 <template>
-    <div class="home max-w-7xl mx-auto px-4 sm:px-6">
-        <!--        <img alt="Vue logo" src="../assets/logo.png" />-->
+    <div class="home max-w-7xl mx-auto px-4 sm:px-6 mt-5">
         <div class="flex">
             <div
                 class="bg-gradient-to-tr from-yellow-400 to-fuchsia-600 p-1 rounded-full"
