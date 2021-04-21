@@ -4,6 +4,10 @@ import { setI18nLanguage, loadLocaleMessages, SUPPORT_LOCALES } from '/i18n';
 import Home from '@/views/Home';
 import About from '@/views/About';
 import DevSkills from '@/views/DevSkills';
+import PmSkills from '@/views/PmSkills';
+import OmSkills from '@/views/OmSkills';
+import SeoSkills from '@/views/SeoSkills';
+import SysSkills from '@/views/SysSkills';
 
 export function setupRouter(i18n) {
     const locale =
@@ -22,6 +26,26 @@ export function setupRouter(i18n) {
             component: DevSkills
         },
         {
+            path: '/:locale/project-manager-skills',
+            name: 'pm-skills',
+            component: PmSkills
+        },
+        {
+            path: '/:locale/online-marketer-skills',
+            name: 'om-skills',
+            component: OmSkills
+        },
+        {
+            path: '/:locale/seo-and-ppc-skills',
+            name: 'seo-skills',
+            component: SeoSkills
+        },
+        {
+            path: '/:locale/system-operator-skills',
+            name: 'sys-skills',
+            component: SysSkills
+        },
+        {
             path: '/:locale/about',
             name: 'about',
             component: About
@@ -36,8 +60,8 @@ export function setupRouter(i18n) {
     const router = createRouter({
         history: createWebHistory(),
         routes,
-        linkActiveClass: 'bg-gray-300 dark:bg-gray-700 transition',
-        linkExactActiveClass: 'bg-gray-300 dark:bg-gray-700 transition'
+        linkActiveClass: 'bg-gray-100 dark:bg-gray-600 transition',
+        linkExactActiveClass: 'bg-gray-100 dark:bg-gray-600 transition'
     });
 
     // navigation guards

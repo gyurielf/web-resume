@@ -1,6 +1,6 @@
 <template>
     <the-navigation></the-navigation>
-    <router-view class="mt-3 mb-8"></router-view>
+    <router-view class="mt-3 mb-auto flex-auto"></router-view>
     <the-footer></the-footer>
 </template>
 <script>

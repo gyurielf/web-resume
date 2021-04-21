@@ -73,9 +73,9 @@ export default {
         // );
         const routePath = computed(() => route.fullPath);
         watch(routePath, () => {
-            console.debug(
-                `MyCoolComponent - watch route.fullPath changed to ${route.fullPath}`
-            );
+            // console.debug(
+            //     `MyCoolComponent - watch route.fullPath changed to ${route.fullPath}`
+            // );
             closeDropdown();
             // Do something here...
             // Optionally you can set immediate: true config for the watcher to run on init
@@ -100,6 +100,9 @@ export default {
                 //}, { immediate: true });
             }
         );*/
+
+        // eslint-disable-next-line no-undef
+        // console.log(`${$i18n.locale}`);
 
         return {
             toggleDropDown,

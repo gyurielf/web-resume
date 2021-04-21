@@ -5,12 +5,21 @@
                 class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10"
             >
                 <div class="flex justify-start lg:w-0 lg:flex-1">
-                    <a href="/">
+                    <router-link
+                        :to="{
+                            name: 'home',
+                            params: {
+                                locale: `${$i18n.locale}`
+                            }
+                        }"
+                        active-class=""
+                        exact-active-class=""
+                    >
                         <span class="sr-only">{{ $t('brand') }}</span>
                         <h1 class="text-3xl dark:text-gray-200">
                             {{ $t('brand') }}
                         </h1>
-                    </a>
+                    </router-link>
                 </div>
                 <div class="-mr-2 -my-2 md:hidden">
                     <button
@@ -113,8 +122,13 @@
                                                 </div>
                                             </router-link>
 
-                                            <a
-                                                href="#"
+                                            <router-link
+                                                :to="{
+                                                    name: 'pm-skills',
+                                                    params: {
+                                                        locale: `${$i18n.locale}`
+                                                    }
+                                                }"
                                                 class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600"
                                             >
                                                 <!-- Heroicon name: outline/cursor-click -->
@@ -146,10 +160,15 @@
                                                         environment.
                                                     </p>
                                                 </div>
-                                            </a>
+                                            </router-link>
 
-                                            <a
-                                                href="#"
+                                            <router-link
+                                                :to="{
+                                                    name: 'om-skills',
+                                                    params: {
+                                                        locale: `${$i18n.locale}`
+                                                    }
+                                                }"
                                                 class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600"
                                             >
                                                 <svg
@@ -180,10 +199,15 @@
                                                         secure.
                                                     </p>
                                                 </div>
-                                            </a>
+                                            </router-link>
 
-                                            <a
-                                                href="#"
+                                            <router-link
+                                                :to="{
+                                                    name: 'seo-skills',
+                                                    params: {
+                                                        locale: `${$i18n.locale}`
+                                                    }
+                                                }"
                                                 class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600"
                                             >
                                                 <svg
@@ -213,10 +237,15 @@
                                                         experience and platforms
                                                     </p>
                                                 </div>
-                                            </a>
+                                            </router-link>
 
-                                            <a
-                                                href="#"
+                                            <router-link
+                                                :to="{
+                                                    name: 'sys-skills',
+                                                    params: {
+                                                        locale: `${$i18n.locale}`
+                                                    }
+                                                }"
                                                 class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600"
                                             >
                                                 <svg
@@ -247,18 +276,20 @@
                                                         customers to convert
                                                     </p>
                                                 </div>
-                                            </a>
+                                            </router-link>
                                         </div>
                                         <div
-                                            class="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8"
+                                            class="px-5 py-5 bg-gray-50 dark:bg-gray-300 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8"
                                         >
                                             <div class="flow-root">
                                                 <a
-                                                    href="#"
-                                                    class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                                                    href="https://github.com/gyurielf"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-200 dark:hover:bg-gray-400"
                                                 >
                                                     <!-- Heroicon name: outline/play -->
-                                                    <svg
+                                                    <!--                                                    <svg
                                                         class="flex-shrink-0 h-6 w-6 text-gray-400"
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         fill="none"
@@ -278,9 +309,20 @@
                                                             stroke-width="2"
                                                             d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                                                         />
+                                                    </svg>-->
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="currentColor"
+                                                        class="flex-shrink-0 h-6 w-6 text-gray-700"
+                                                        viewBox="0 0 16 16"
+                                                        aria-hidden="true"
+                                                    >
+                                                        <path
+                                                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                                                        />
                                                     </svg>
                                                     <span class="ml-3"
-                                                        >Watch Demo</span
+                                                        >GitHub</span
                                                     >
                                                 </a>
                                             </div>
@@ -288,11 +330,11 @@
                                             <div class="flow-root">
                                                 <a
                                                     href="#"
-                                                    class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                                                    class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-200 dark:hover:bg-gray-400"
                                                 >
                                                     <!-- Heroicon name: outline/phone -->
                                                     <svg
-                                                        class="flex-shrink-0 h-6 w-6 text-gray-400"
+                                                        class="flex-shrink-0 h-6 w-6 text-gray-700"
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         fill="none"
                                                         viewBox="0 0 24 24"
@@ -307,7 +349,7 @@
                                                         />
                                                     </svg>
                                                     <span class="ml-3"
-                                                        >Contact Sales</span
+                                                        >Contact</span
                                                     >
                                                 </a>
                                             </div>
@@ -384,6 +426,7 @@ import ThemeToggler from '@/components/ui/Elements/ThemeToggler';
 import LanguageSelector from '@/components/ui/Elements/LanguageSelector';
 import AppDropdown from '@/components/ui/Elements/AppDropdown';
 import AppDropdownContent from '@/components/ui/Elements/AppDropdownContent';
+
 export default {
     name: 'TheNavigation',
     components: {
