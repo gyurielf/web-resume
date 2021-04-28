@@ -80,9 +80,7 @@ export default {
 .slide-right-enter-active,
 .slide-left-enter-active,
 .slide-left-leave-active {
-    /*transition: 0.6s;*/
-    transition-duration: 0.6s;
-    transition-property: opacity, translate;
+    transition: 0.6s;
 }
 /*RIGHT SLIDE*/
 .slide-right-enter-from {
