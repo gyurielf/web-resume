@@ -1,5 +1,7 @@
 <template>
-    <div class="home max-w-7xl mx-auto px-4 sm:px-6 mt-5">
+    <div
+        class="max-w-screen-lg xl:max-w-screen-xl mx-auto divide-y divide-gray-200 px-4 sm:px-6 md:px-8"
+    >
         <div class="flex">
             <div
                 class="bg-gradient-to-tr from-yellow-400 to-fuchsia-600 p-1 rounded-full"

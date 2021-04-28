@@ -47,7 +47,7 @@
                     </button>
                 </div>
                 <nav class="hidden md:flex space-x-10">
-                    <div>
+                    <div class="relative">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
                         <app-dropdown
                             :dropdown-type="'hover'"
@@ -74,7 +74,7 @@
                             </template>
                             <app-dropdown-content>
                                 <div
-                                    class="inline-block z-10 -ml-4 pt-3 px-2 w-screen max-w-md sm:px-0 lg:ml-0 top-0 left-1/2"
+                                    class="absolute z-30 -ml-4 pt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
                                 >
                                     <div
                                         class="relative rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden"
@@ -116,7 +116,7 @@
                                                     >
                                                         I'm engaged in front-end
                                                         development, but I have
-                                                        some full-stack
+                                                        a little full-stack
                                                         experience as well.
                                                     </p>
                                                 </div>
@@ -359,25 +359,35 @@
                             </app-dropdown-content>
                         </app-dropdown>
                     </div>
-                    <a
-                        href="#"
+                    <router-link
+                        :to="{
+                            name: 'education',
+                            params: {
+                                locale: `${$i18n.locale}`
+                            }
+                        }"
                         class="text-gray-500 group rounded-md inline-flex items-center text-base font-medium dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4
                 py-2 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none
                 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent
                 text-sm text-gray-500"
                     >
-                        Pricing
-                    </a>
-                    <a
-                        href="#"
+                        Education
+                    </router-link>
+                    <router-link
+                        :to="{
+                            name: 'references',
+                            params: {
+                                locale: `${$i18n.locale}`
+                            }
+                        }"
                         class="text-gray-500 group rounded-md inline-flex items-center text-base font-medium dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4
                 py-2 dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none
                 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent
                 text-sm text-gray-500"
                     >
-                        Docs
-                    </a>
-                    <app-dropdown :dropdown-type="'hover'">
+                        References
+                    </router-link>
+                    <!--                    <app-dropdown :dropdown-type="'hover'">
                         <template v-slot:dropDownToggler>
                             <div class="relative">
                                 <button
@@ -405,10 +415,10 @@
                                 </button>
                             </div>
                         </template>
-                        <!--                        <app-dropdown-content>-->
-                        <!--                            <p>hellooo</p>-->
-                        <!--                        </app-dropdown-content>-->
-                    </app-dropdown>
+                        &lt;!&ndash;                        <app-dropdown-content>&ndash;&gt;
+                        &lt;!&ndash;                            <p>hellooo</p>&ndash;&gt;
+                        &lt;!&ndash;                        </app-dropdown-content>&ndash;&gt;
+                    </app-dropdown>-->
                 </nav>
                 <div
                     class="hidden md:flex items-center justify-end md:flex-1 lg:w-0"

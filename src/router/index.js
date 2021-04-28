@@ -2,12 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { setI18nLanguage, loadLocaleMessages, SUPPORT_LOCALES } from '/i18n';
 
 import Home from '@/views/Home';
-import About from '@/views/About';
 import DevSkills from '@/views/DevSkills';
 import PmSkills from '@/views/PmSkills';
 import OmSkills from '@/views/OmSkills';
 import SeoSkills from '@/views/SeoSkills';
 import SysSkills from '@/views/SysSkills';
+import Education from '@/views/Education';
+import References from '@/views/References';
 
 export function setupRouter(i18n) {
     const locale =
@@ -46,9 +47,14 @@ export function setupRouter(i18n) {
             component: SysSkills
         },
         {
-            path: '/:locale/about',
-            name: 'about',
-            component: About
+            path: '/:locale/education',
+            name: 'education',
+            component: Education
+        },
+        {
+            path: '/:locale/references',
+            name: 'references',
+            component: References
         },
         {
             path: '/:pathMatch(.*)*',
