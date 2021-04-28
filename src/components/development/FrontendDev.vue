@@ -267,7 +267,7 @@
                     <p
                         class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-gray-400"
                     >
-                        TailwindCSS
+                        Advanced TailwindCSS
                     </p>
                 </dt>
                 <dd class="mt-2 ml-16 text-base text-gray-500">
