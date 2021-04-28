@@ -77,7 +77,7 @@
                     <p
                         class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-gray-400"
                     >
-                        NodeJS - Express, MongoDB, JWT Auth
+                        Javascript - ES6+
                     </p>
                 </dt>
                 <dd class="mt-2 ml-16 text-base text-gray-500">
@@ -112,7 +112,7 @@
                     <p
                         class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-gray-400"
                     >
-                        Transfers are instant
+                        CSS - Bootstrap, TailwindCSS, Bulma
                     </p>
                 </dt>
                 <dd class="mt-2 ml-16 text-base text-gray-500">
@@ -147,7 +147,7 @@
                     <p
                         class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-gray-400"
                     >
-                        Mobile notifications
+                        AJAX
                     </p>
                 </dt>
                 <dd class="mt-2 ml-16 text-base text-gray-500">
@@ -238,7 +238,7 @@
                 </dt>
                 <dd class="mt-2 ml-16 text-base text-gray-500">
                     Self-evident to learn the most popular javascript framework
-                    end ecosystem.
+                    and ecosystem.
                 </dd>
             </div>
 
@@ -340,6 +340,39 @@
                     I'd like to learn some language for mobile application
                     development. I met hundreds of situations where could be
                     useful.
+                </dd>
+            </div>
+            <div class="relative">
+                <dt>
+                    <div
+                        class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"
+                    >
+                        <!-- Heroicon name: outline/annotation -->
+                        <svg
+                            class="h-6 w-6"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+                            />
+                        </svg>
+                    </div>
+                    <p
+                        class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-gray-400"
+                    >
+                        Material Components
+                    </p>
+                </dt>
+                <dd class="mt-2 ml-16 text-base text-gray-500">
+                    This is a big shortcoming for me. Clear and simple. I should
+                    learn it.
                 </dd>
             </div>
         </div>

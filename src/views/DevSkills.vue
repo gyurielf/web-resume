@@ -15,10 +15,10 @@
                 <p
                     class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto italic"
                 >
-                    Dont hesitate to ask!
+                    Don't hesitate to ask!
                 </p>
             </div>
-            <dev-orientation></dev-orientation>
+            <dev-orientation class="mb-16"></dev-orientation>
         </div>
     </div>
 </template>

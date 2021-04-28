@@ -75,12 +75,16 @@ export default {
 </script>
 
 <style scoped>
+/*TRANSITION TIME*/
 .slide-right-leave-active,
 .slide-right-enter-active,
 .slide-left-enter-active,
 .slide-left-leave-active {
-    transition: 0.6s;
+    /*transition: 0.6s;*/
+    transition-duration: 0.6s;
+    transition-property: opacity, translate;
 }
+/*RIGHT SLIDE*/
 .slide-right-enter-from {
     transform: translate(-25%, 0);
     opacity: 0;
@@ -92,7 +96,7 @@ export default {
     transform: translate(25%, 0);
     opacity: 0;
 }
-/*LEFT*/
+/*LEFT SLIDE*/
 .slide-left-enter-from {
     transform: translate(25%, 0);
     opacity: 0;
