@@ -89,7 +89,7 @@
                                                         locale: `${$i18n.locale}`
                                                     }
                                                 }"
-                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600"
+                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
                                             >
                                                 <svg
                                                     class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-indigo-300"
