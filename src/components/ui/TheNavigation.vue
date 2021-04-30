@@ -50,7 +50,7 @@
                     <div class="relative">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
                         <app-dropdown
-                            :dropdown-type="'hover'"
+                            :dropdown-type="''"
                             :type="'button'"
                             :slot-class="
                                 `text-gray-500 group rounded-md inline-flex items-center text-base font-medium dark:border-gray-700 hover:shadow-sm hover:bg-gray-200 rounded-md px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 dark:focus:ring-offset-transparent dark:focus:ring-transparent text-sm text-gray-500`
