@@ -74,6 +74,7 @@ export default defineComponent({
                 name: router.currentRoute.value.name,
                 params: { locale: val }
             });
+            store.dispatch('langModule/SET_CURRENT_LANGUAGE', val);
         });
 
         /**

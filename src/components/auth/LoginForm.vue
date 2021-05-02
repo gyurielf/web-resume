@@ -111,7 +111,7 @@
 <script>
 import { useStore } from 'vuex';
 import { reactive, ref } from 'vue';
-// import { useRoute, useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 export default {
     name: 'LoginForm',
     setup() {
@@ -129,10 +129,10 @@ export default {
         });
         const isLoading = ref(false);
         const formIsValid = ref(true);
-        const mode = ref('signup');
+        const mode = ref('signin');
         const error = ref(null);
-        // const route = useRoute();
-        // const router = useRouter();
+        const route = useRoute();
+        const router = useRouter();
 
         // FORM VALIDATION
         function validateForm() {
@@ -157,22 +157,6 @@ export default {
             }
         }
 
-        // Login form submit
-        /*async function submitLoginForm() {
-            validateForm();
-            if (!formIsValid.value) {
-                return;
-            }
-            isLoading.value = true;
-            try {
-                await store.dispatch('authModule/userLogin', loginFormData);
-            } catch (e) {
-                console.log(e);
-            }
-
-            isLoading.value = false;
-        }*/
-
         async function submitForm() {
             validateForm();
             if (!formIsValid.value) {
@@ -180,26 +164,17 @@ export default {
             }
             isLoading.value = true;
             try {
-                // send http req
-                if (mode.value === 'login') {
-                    // SIGN IN
-                    await store.dispatch('authModule/userLogin', {
-                        email: loginFormData.email.val,
-                        password: loginFormData.passwd.val
-                    });
-                    // ...
-                } else {
-                    // SIGN UP
-                    await store.dispatch('authModule/userSignUp', {
-                        email: loginFormData.email.val,
-                        password: loginFormData.passwd.val
-                    });
-                }
+                // SEND HTTP(S) REQ
+                // SIGN IN
+                await store.dispatch('authModule/userLogin', {
+                    email: loginFormData.email.val,
+                    password: loginFormData.passwd.val,
+                    mode: mode.value
+                });
                 // Redirect the user to the requested URL
-                // const redirectUrl =
-                //     '/' +
-                //     (route.query.redirect || `/${currLocale}/developer-skills`);
-                // await router.replace(redirectUrl);
+                const redirectUrl =
+                    '/' + (route.query.redirect || `/en/developer-skills`);
+                await router.replace(redirectUrl);
             } catch (e) {
                 console.log(e);
                 error.value = e.message || 'FAILED';

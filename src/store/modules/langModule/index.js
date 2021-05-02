@@ -5,7 +5,9 @@ import langMutations from '@/store/modules/langModule/mutations';
 const langModule = {
     namespaced: true,
     state() {
-        return {};
+        return {
+            currentLanguage: null
+        };
     },
     mutations: langMutations,
     actions: langActions,

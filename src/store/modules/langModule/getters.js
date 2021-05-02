@@ -1,8 +1,5 @@
 export default {
-    getDarkModeStatus(state) {
-        return state.darkModeStatus;
-    },
-    getTheme(state) {
-        return state.theme;
+    GET_CURRENT_LANGUAGE(state) {
+        return state.currentLanguage;
     }
 };

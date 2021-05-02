@@ -8,11 +8,8 @@ export default {
     setRequests(state, payload) {
         state.requests = payload;
     },*/
-    switchThemeMode(state, payload) {
-        state.darkModeStatus = payload;
-    },
-    SET_THEME(state, theme) {
-        state.theme = theme;
-        localStorage.theme = theme;
+    SET_CURRENT_LANGUAGE(state, payload) {
+        state.currentLanguage = payload;
+        localStorage.lang = payload;
     }
 };
