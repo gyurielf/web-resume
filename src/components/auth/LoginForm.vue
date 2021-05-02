@@ -17,7 +17,7 @@
                     </a>
                 </p>
             </div>
-            <form class="mt-8 space-y-6" action="#" method="POST">
+            <form class="mt-8 space-y-6" @submit.prevent>
                 <input type="hidden" name="remember" value="true" />
                 <div class="rounded-md shadow-sm -space-y-px">
                     <div>
@@ -32,6 +32,7 @@
                             required
                             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                             placeholder="Email address"
+                            v-model.trim.lazy="loginFormData.email.val"
                         />
                     </div>
                     <div>
@@ -44,6 +45,7 @@
                             required
                             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                             placeholder="Password"
+                            v-model.trim.lazy="loginFormData.passwd.val"
                         />
                     </div>
                 </div>
@@ -78,6 +80,7 @@
                     <button
                         type="submit"
                         class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        @click="submitForm"
                     >
                         <span
                             class="absolute left-0 inset-y-0 flex items-center pl-3"
@@ -107,21 +110,104 @@
 
 <script>
 import { useStore } from 'vuex';
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
+// import { useRoute, useRouter } from 'vue-router';
 export default {
     name: 'LoginForm',
     setup() {
         // Init store
         const store = useStore();
+        const loginFormData = reactive({
+            email: {
+                val: null,
+                isValid: true
+            },
+            passwd: {
+                val: null,
+                isValid: true
+            }
+        });
+        const isLoading = ref(false);
+        const formIsValid = ref(true);
+        const mode = ref('signup');
+        const error = ref(null);
+        // const route = useRoute();
+        // const router = useRouter();
 
-        const userEmail = ref('');
-        const userPassword = ref('');
+        // FORM VALIDATION
+        function validateForm() {
+            // We set the formIsValid to true by default.
+            formIsValid.value = true;
+            // If the form is invalid, we set the formIsValid to false.
+            if (
+                loginFormData.email.val === null ||
+                !loginFormData.email.val.includes('@') ||
+                loginFormData.email.val === ''
+            ) {
+                loginFormData.email.isValid = false;
+                formIsValid.value = false;
+            }
+            if (
+                loginFormData.passwd.val === null ||
+                loginFormData.passwd.val.length < 6 ||
+                loginFormData.passwd.val === ''
+            ) {
+                loginFormData.passwd.isValid = false;
+                formIsValid.value = false;
+            }
+        }
 
         // Login form submit
-        function submitLoginForm() {
-            store.dispatch('userLogin', pl);
+        /*async function submitLoginForm() {
+            validateForm();
+            if (!formIsValid.value) {
+                return;
+            }
+            isLoading.value = true;
+            try {
+                await store.dispatch('authModule/userLogin', loginFormData);
+            } catch (e) {
+                console.log(e);
+            }
+
+            isLoading.value = false;
+        }*/
+
+        async function submitForm() {
+            validateForm();
+            if (!formIsValid.value) {
+                return;
+            }
+            isLoading.value = true;
+            try {
+                // send http req
+                if (mode.value === 'login') {
+                    // SIGN IN
+                    await store.dispatch('authModule/userLogin', {
+                        email: loginFormData.email.val,
+                        password: loginFormData.passwd.val
+                    });
+                    // ...
+                } else {
+                    // SIGN UP
+                    await store.dispatch('authModule/userSignUp', {
+                        email: loginFormData.email.val,
+                        password: loginFormData.passwd.val
+                    });
+                }
+                // Redirect the user to the requested URL
+                // const redirectUrl =
+                //     '/' +
+                //     (route.query.redirect || `/${currLocale}/developer-skills`);
+                // await router.replace(redirectUrl);
+            } catch (e) {
+                console.log(e);
+                error.value = e.message || 'FAILED';
+            }
+            this.isLoading = false;
         }
-        return { userEmail, userPassword };
+
+        return { loginFormData, submitForm, isLoading };
     }
 };
 </script>

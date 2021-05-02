@@ -2,18 +2,21 @@ const apik = 'AIzaSyALCSKGK2nfR6hVd4ccM88ejU9mJBrMCbk';
 let timer;
 export default {
     // eslint-disable-next-line no-unused-vars
+    // LOGGING IN THE USER
     async userLogin({ dispatch }, payload) {
         return dispatch('authenticate', {
             ...payload,
             mode: 'signin'
         });
     },
+    // SIGNING UP THE USER
     async userSignUp({ dispatch }, payload) {
         return dispatch('authenticate', {
             ...payload,
             mode: 'signup'
         });
     },
+    // AUTH BASED ON MODES (signin or signup)
     async authenticate({ commit, dispatch }, payload) {
         const mode = payload.mode;
         let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apik}`;
@@ -23,8 +26,8 @@ export default {
         const response = await fetch(url, {
             method: 'POST',
             body: JSON.stringify({
-                email: payload.email,
-                password: payload.password,
+                email: payload.email.val,
+                password: payload.passwd.val,
                 returnSecureToken: true
             })
         });
@@ -53,7 +56,7 @@ export default {
         }, expiresIn);
 
         // Mutation commit into VUEX
-        commit('setUser', {
+        commit('SET_USER', {
             token: responseData.idToken,
             userId: responseData.localId
         });
