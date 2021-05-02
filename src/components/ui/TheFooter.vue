@@ -71,6 +71,21 @@
                                 Contact
                             </a>
                         </li>
+                        <li>
+                            <router-link
+                                class="hover:text-gray-900 dark:hover:text-gray-200 transition-colors duration-200"
+                                :to="{
+                                    name: 'sign-in',
+                                    params: {
+                                        locale: `${$i18n.locale}`
+                                    }
+                                }"
+                                active-class=""
+                                exact-active-class=""
+                            >
+                                Sign-in
+                            </router-link>
+                        </li>
                     </ul>
                 </li>
             </ul>

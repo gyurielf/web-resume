@@ -1,4 +1,4 @@
-const apik = 'AIzaSyCuibjlXxIJKruw0SiIyzU0DI1ubIjAvjY';
+const apik = 'AIzaSyALCSKGK2nfR6hVd4ccM88ejU9mJBrMCbk';
 let timer;
 export default {
     // eslint-disable-next-line no-unused-vars
@@ -46,7 +46,7 @@ export default {
         localStorage.setItem('userId', responseData.localId);
         localStorage.setItem('tokenExpiration', expirationDate);
 
-        // If the timer counted down, the user wil lbe auto logouted.
+        // If the timer counted down, the user will be auto logouted.
         timer = setTimeout(() => {
             dispatch('userLogout');
             dispatch('autoLogout');

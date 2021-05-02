@@ -9,6 +9,8 @@ import SeoSkills from '@/views/SeoSkills';
 import SysSkills from '@/views/SysSkills';
 import Education from '@/views/Education';
 import References from '@/views/References';
+import SignIn from '@/views/SignIn';
+import SignUp from '@/views/SignUp';
 
 export function setupRouter(i18n) {
     const locale =
@@ -55,6 +57,16 @@ export function setupRouter(i18n) {
             path: '/:locale/references',
             name: 'references',
             component: References
+        },
+        {
+            path: '/:locale/sign-in',
+            name: 'sign-in',
+            component: SignIn
+        },
+        {
+            path: '/:locale/sign-up',
+            name: 'sign-up',
+            component: SignUp
         },
         {
             path: '/:pathMatch(.*)*',

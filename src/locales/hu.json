@@ -10,5 +10,21 @@
     },
     "labels": {
         "language": "Languages"
+    },
+    "footer": {
+        "footer_col_1": {
+            "title": "Kezdj hozzá"
+        },
+        "footer_col_2": {
+
+        },
+        "footer_col_3": {
+
+        },
+        "footer_col_4": {
+            "title": "Linkek",
+            "sign_in": "Belépés",
+            "contact": "Kapcsolat"
+        }
     }
 }
