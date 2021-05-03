@@ -110,13 +110,17 @@
 
 <script>
 import { useStore } from 'vuex';
-import { reactive, ref } from 'vue';
+import { computed, reactive, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 export default {
     name: 'LoginForm',
     setup() {
         // Init store
         const store = useStore();
+        // Init router
+        const route = useRoute();
+        const router = useRouter();
+
         const loginFormData = reactive({
             email: {
                 val: null,
@@ -127,12 +131,14 @@ export default {
                 isValid: true
             }
         });
+
         const isLoading = ref(false);
         const formIsValid = ref(true);
         const mode = ref('signin');
         const error = ref(null);
-        const route = useRoute();
-        const router = useRouter();
+        const currentLang = computed(
+            () => store.getters['langModule/GET_CURRENT_LANGUAGE']
+        );
 
         // FORM VALIDATION
         function validateForm() {
@@ -156,7 +162,7 @@ export default {
                 formIsValid.value = false;
             }
         }
-
+        // Submit login form
         async function submitForm() {
             validateForm();
             if (!formIsValid.value) {
@@ -164,8 +170,7 @@ export default {
             }
             isLoading.value = true;
             try {
-                // SEND HTTP(S) REQ
-                // SIGN IN
+                // SIGN IN -- SEND HTTP(S) REQ
                 await store.dispatch('authModule/userLogin', {
                     email: loginFormData.email.val,
                     password: loginFormData.passwd.val,
@@ -173,7 +178,9 @@ export default {
                 });
                 // Redirect the user to the requested URL
                 const redirectUrl =
-                    '/' + (route.query.redirect || `/en/developer-skills`);
+                    '/' +
+                    (route.query.redirect ||
+                        `/${currentLang.value}/developer-skills`);
                 await router.replace(redirectUrl);
             } catch (e) {
                 console.log(e);
